@@ -1,0 +1,70 @@
+{
+  "name": "mtvdownloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/bundle.cjs",
+  "scripts": {
+    "dev": "nodemon --ext \".ts,.js\" --watch \"./src\" --exec \"ts-node  ./src/index.ts",
+    "webpack": "node --loader ts-node/esm ./node_modules/webpack-cli/bin/cli.js --mode=production",
+    "dist": "copyfiles ./node_modules/ffmpeg-static/ffmpeg.exe ./dist -f && npm run webpack",
+    "start": "rimraf ./dist && npm run dist && node dist/bundle.cjs",
+    "pkg": "rimraf ./dist/binaries && npm run webpack && pkg package.json &&copyfiles ./node_modules/ffmpeg-static/ffmpeg.exe ./dist/binaries/index -f",
+    "pkg:debug": "rimraf ./dist/binaries && npm run webpack && pkg package.json --debug&&cross-env DEBUG_PKG=1  .\\dist\\binaries\\index\\mtvdownloader-win.exe>pkg.txt",
+    "Top_Female_Groups": "node ./dist/bundle.cjs -d \"./download/Top Female Groups\" -i \"./YouTube - Most Viewed Music Videos by Female Groups.html\"",
+    "Top_Female_Artists": "node ./dist/bundle.cjs -s 940 -d \"./download/Top Female Artists\" -i \"./YouTube - Most Viewed Music Videos by Female Artists.html\""
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "downloader": "./dist/bundle.cjs"
+  },
+  "pkg": {
+    "assets": [
+      "./dist/*.node"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist/binaries/index"
+  },
+  "author": "topabomb",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^2.1.0",
+    "commander": "^10.0.1",
+    "dotenv": "^16.0.3",
+    "ffmpeg-static": "^5.2.0",
+    "htmlparser2": "^9.0.0",
+    "json5": "^2.2.3",
+    "log4js": "^6.7.0",
+    "moment-timezone": "^0.5.43",
+    "node-fetch": "^2.6.7",
+    "sanitize-filename": "^1.6.3",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.16",
+    "@types/node-fetch": "^2.6.2",
+    "@types/webpack": "^5.28.1",
+    "@typescript-eslint/eslint-plugin": "^5.30.4",
+    "@typescript-eslint/parser": "^5.30.4",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^6.0.0",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "node-loader": "^2.0.0",
+    "nodemon": "^2.0.20",
+    "pkg": "^5.8.1",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3",
+    "webpack": "^5.85.1",
+    "webpack-cli": "^5.1.3"
+  }
+}
