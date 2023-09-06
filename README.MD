@@ -10,6 +10,14 @@ mtvdownload can extract video links in bulk from HTML files or websites and then
 
 ## EXAMPLE
 
+windows
+
+```shell
+./mtvdownloader.exe -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+```
+
+node
+
 ```shell
 node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
 ```
@@ -31,6 +39,10 @@ https://kworb.net provides various types of music video lists, and you can acces
 - And more...
 
 You can use mtvdownloader to recognize and batch download videos from these different lists based on your preferences. For example, you can use it to download videos from the "Top 100 Female Groups" list or any other list you choose. This flexibility allows you to easily download music videos based on various criteria and categories.
+
+```shell
+./mtvdownloader.exe -i https://kworb.net/youtube/topvideos_female_group.html -d ./download
+```
 
 # INSTALLATION
 

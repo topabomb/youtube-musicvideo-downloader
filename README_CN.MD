@@ -9,6 +9,14 @@ mtvdownload 可以从 HTML 文件或网站中批量提取视频链接，然后�
 
 ## 演示
 
+windows
+
+```shell
+./mtvdownloader.exe -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+```
+
+node
+
 ```shell
 node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
 ```
@@ -31,8 +39,16 @@ https://kworb.net 提供了不同种类的音乐视频清单，可以访问[热�
 
 mtvdownloader 能够识别这些不同的网页的内容并批量进行下载，例如 top100 的女团视频
 
+windows
+
 ```shell
-./mtvdownloader.exe -i https://kworb.net/youtube/topvideos_female_group.html -d ./download
+./mtvdownloader.exe -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+```
+
+node
+
+```shell
+node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
 ```
 
 ### 安装
