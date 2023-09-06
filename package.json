@@ -11,7 +11,7 @@
     "pkg": "rimraf ./dist/binaries && npm run webpack && pkg package.json &&copyfiles ./node_modules/ffmpeg-static/ffmpeg.exe ./dist/binaries/index -f",
     "pkg:debug": "rimraf ./dist/binaries && npm run webpack && pkg package.json --debug&&cross-env DEBUG_PKG=1  .\\dist\\binaries\\index\\mtvdownloader-win.exe>pkg.txt",
     "Top_Female_Groups": "node ./dist/bundle.cjs -d \"./download/Top Female Groups\" -i \"./YouTube - Most Viewed Music Videos by Female Groups.html\"",
-    "Top_Female_Artists": "node ./dist/bundle.cjs -s 940 -d \"./download/Top Female Artists\" -i \"./YouTube - Most Viewed Music Videos by Female Artists.html\""
+    "Top_Female_Artists": "node ./dist/bundle.cjs -s 0 -d \"./download/Top Female Artists\" -i \"./YouTube - Most Viewed Music Videos by Female Artists.html\""
   },
   "type": "module",
   "engines": {

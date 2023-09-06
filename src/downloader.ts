@@ -16,6 +16,7 @@ const downloader = {
     let title = options.name;
     const url = `https://www.youtube.com/watch?v=${id}`;
     const info = await ytdl.getInfo(url);
+    console.info(`id(${id}),url(${url}),title(${info.videoDetails.title})`);
     let videoFormat: ytdl.videoFormat | undefined;
     if (options.videoFormat) videoFormat = options.videoFormat(info.formats.filter((x) => x.hasVideo));
     if (!title) title = info.videoDetails.title;
@@ -29,13 +30,13 @@ const downloader = {
         let killed: boolean;
         if (audio && !audio.destroyed) audio.destroy(new Error('clean'));
         if (video && !video.destroyed) video.destroy(new Error('clean'));
-        //if (ffmpegProcess) killed = ffmpegProcess.kill('SIGKILL');
+        if (ffmpegProcess) killed = ffmpegProcess.kill('SIGKILL');
         try {
           fs.unlinkSync(tmpFile);
         } catch (err) {
           if (!(err as Error).message.includes('resource busy or locked')) throw err;
           else {
-            console.log(`${tmpFile},ffmpegProcess(${ffmpegProcess.pid}),killed(${killed})`);
+            console.warn(`unlink error:${tmpFile},ffmpegProcess(${ffmpegProcess.pid}),killed(${killed})`);
           }
         }
       }
@@ -157,7 +158,6 @@ const downloader = {
         process.stdout.write('\n\n\n\n');
         clearInterval(progressbarHandle);
         if (existsSync(tmpFile)) fs.renameSync(tmpFile, targetFile);
-
         resolve(targetFile);
       });
 

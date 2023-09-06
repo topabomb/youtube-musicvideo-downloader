@@ -7,6 +7,16 @@ mtvdownload 可以从 HTML 文件或网站中批量提取视频链接，然后�
 
 > mtvdownload 暂时只能解析https://kworb.net中的youtube视频
 
+## 演示
+
+```shell
+node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+```
+
+![观看最多的女团视频](<./screenshots/YouTube - Most Viewed Music Videos by Female Groups.png>)
+
+[在网盘中查看](https://drive.google.com/drive/folders/1SQBiu2eFOiIGchg7E3dxJNd-4Kta9Zwh?usp=sharing)
+
 # 关于 kworb.net
 
 https://kworb.net 提供了不同种类的音乐视频清单，可以访问[热门列表](https://kworb.net/youtube/stats.html) 查看 YouTube Top Lists，例如

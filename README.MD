@@ -6,7 +6,17 @@ Youtube Music Video Downloader（mtvdownload） is a command-line program design
 
 mtvdownload can extract video links in bulk from HTML files or websites and then download them one by one to a specified directory.
 
-Please note that mtvdownload is currently only capable of parsing YouTube videos from https://kworb.net.
+> Please note that mtvdownload is currently only capable of parsing YouTube videos from https://kworb.net.
+
+## EXAMPLE
+
+```shell
+node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+```
+
+![Most Viewed Music Videos by Female Groups](<./screenshots/YouTube - Most Viewed Music Videos by Female Groups.png>)
+
+[View in Google Drive](https://drive.google.com/drive/folders/1SQBiu2eFOiIGchg7E3dxJNd-4Kta9Zwh?usp=sharing)
 
 # ABOUT kworb.net
 
