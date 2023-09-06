@@ -13,13 +13,13 @@ mtvdownload can extract video links in bulk from HTML files or websites and then
 windows
 
 ```shell
-./mtvdownloader.exe -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+./mtvdownloader.exe -d "./download/Top Female Groups" -i "https://kworb.net/youtube/topvideos_female_group.html"
 ```
 
 node
 
 ```shell
-node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "https://kworb.net/youtube/topvideos_female_group.html"
 ```
 
 ![Most Viewed Music Videos by Female Groups](<./screenshots/YouTube - Most Viewed Music Videos by Female Groups.png>)

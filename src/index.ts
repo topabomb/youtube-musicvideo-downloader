@@ -67,12 +67,8 @@ const download = async (key: string) => {
       console.log(`Video(${key}) unavailable,skip and continue next.`);
     else if ((err as Error).message.includes('Status code: 410'))
       console.log(`Video(${key}) code 410,skip and continue next.`);
-    else if (
-      (err as Error).message.includes(
-        'This is a private video. Please sign in to verify that you may see it,skip and continue next.'
-      )
-    )
-      console.log(`Video(${key}) private.`);
+    else if ((err as Error).message.includes('This is a private video. Please sign in to verify that you may see it.'))
+      console.log(`Video(${key}) private,skip and continue next.`);
     else if ((err as Error).message.includes('write EPIPE')) {
       console.log(`Video(${key}) write EPIPE,retrying...`);
       await sleep(10 * 1000);

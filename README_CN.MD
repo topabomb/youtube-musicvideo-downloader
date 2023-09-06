@@ -12,13 +12,13 @@ mtvdownload 可以从 HTML 文件或网站中批量提取视频链接，然后�
 windows
 
 ```shell
-./mtvdownloader.exe -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+./mtvdownloader.exe -d "./download/Top Female Groups" -i "https://kworb.net/youtube/topvideos_female_group.html"
 ```
 
 node
 
 ```shell
-node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "./YouTube - Most Viewed Music Videos by Female Groups.html"
+node ./dist/bundle.cjs -d "./download/Top Female Groups" -i "https://kworb.net/youtube/topvideos_female_group.html"
 ```
 
 ![观看最多的女团视频](<./screenshots/YouTube - Most Viewed Music Videos by Female Groups.png>)

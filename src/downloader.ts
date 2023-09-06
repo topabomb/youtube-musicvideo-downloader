@@ -15,8 +15,9 @@ const downloader = {
   ): Promise<string> => {
     let title = options.name;
     const url = `https://www.youtube.com/watch?v=${id}`;
+    console.log(`id(${id}),url(${url}),fetching...`);
     const info = await ytdl.getInfo(url);
-    console.info(`id(${id}),url(${url}),title(${info.videoDetails.title})`);
+    console.info(`id(${id}),title(${info.videoDetails.title})`);
     let videoFormat: ytdl.videoFormat | undefined;
     if (options.videoFormat) videoFormat = options.videoFormat(info.formats.filter((x) => x.hasVideo));
     if (!title) title = info.videoDetails.title;
@@ -42,8 +43,12 @@ const downloader = {
       }
     };
     clearDownload();
-    if (fs.existsSync(targetFile)) return targetFile;
     return new Promise((resolve, reject) => {
+      if (fs.existsSync(targetFile)) {
+        resolve(targetFile);
+        return;
+      }
+      console.log(`download(${tmpFile}) starting...`);
       let progressbarHandle = null;
       let updateBy = Date.now();
       const checkTimeout = () => {
